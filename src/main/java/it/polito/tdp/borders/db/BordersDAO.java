@@ -58,11 +58,7 @@ public class BordersDAO {
 	}
 	
 	public List<Country> getCountriesFromYear(int anno,Map<Integer,Country> countriesMap) {
-		String sql = "select * from country " + 
-				"where CCode in ( " + 
-				"select state1no " + 
-				"from contiguity " + 
-				"where year<=? and conttype=1)" ;
+		String sql = "select * from country where CCode in ( select state1no from contiguity where year<=? and conttype=1)" ;
 		
 		try {
 			Connection conn = DBConnect.getConnection() ;
@@ -102,11 +98,7 @@ public class BordersDAO {
 	}
 	
 	public List<Adiacenza> getCoppieAdiacenti(int anno) {
-		String sql = "select state1no, state2no " + 
-				"from contiguity " + 
-				"where year<=? " + 
-				"and conttype=1 " + 
-				"and state1no < state2no" ;
+		String sql = "select state1no, state2no from contiguity where year<=? and conttype=1 and state1no < state2no" ;
 		
 		List<Adiacenza> result = new ArrayList<>() ;
 		

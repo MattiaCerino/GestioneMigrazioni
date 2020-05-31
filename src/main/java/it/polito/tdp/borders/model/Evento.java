@@ -6,7 +6,6 @@ public class Evento implements Comparable<Evento>{
 	private Country stato; //lo stato in cui arrivano i migranti al tempo t
 	private int n; //il numero di migranti che arrivano in "stato" al tempo t (la metà di essi, si sposterà)
 	
-	
 	public Evento(int t, Country stato, int n) {
 		super();
 		this.t = t;

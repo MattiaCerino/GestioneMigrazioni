@@ -42,11 +42,11 @@ public class FXMLController {
     	String annoS = txtAnno.getText();
 		try {
 			int anno = Integer.parseInt(annoS);
-
+	
 			model.creaGrafo(anno);
 			
 			List<CountryAndNumber> list = model.getCountryAndNumber();
-
+	
 			if (list.size() == 0) {
 				txtResult.appendText("Non ci sono stati corrispondenti\n");
 			} else {
@@ -58,15 +58,15 @@ public class FXMLController {
 			}
 			
 			boxNazione.getItems().addAll(this.model.getCountries());
-
+	
 		} catch (NumberFormatException e) {
 			txtResult.appendText("Errore di formattazione dell'anno\n");
 			return;
 		}
     }
-
+    
     @FXML
-    void doSimula(ActionEvent event) {    		
+    void doSimula(ActionEvent event) {
     	txtResult.clear();
     	Country partenza = boxNazione.getValue();
     	if(partenza == null) {
@@ -82,9 +82,8 @@ public class FXMLController {
     			txtResult.appendText(c.getCountry() + " = " + c.getNumber() + "\n");
     		}
     	}
-    	
     }
-
+    
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
         assert txtAnno != null : "fx:id=\"txtAnno\" was not injected: check your FXML file 'Scene.fxml'.";

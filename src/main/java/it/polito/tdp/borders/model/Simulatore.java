@@ -14,8 +14,8 @@ public class Simulatore {
 	//Modello -> Stato del sistema ad ogni passo
 	private Graph<Country, DefaultEdge> grafo;
 	
-	//Tipi di evento? -> coda prioritaria
-	private PriorityQueue<Evento> queue;
+	//Tipi di evento? -> Che andranno inseriti nella coda prioritaria
+	private PriorityQueue<Evento> queue;	// Unico evento che ci interessa : migranti che arrivano in uno stato
 	
 	//Parametri della simulazione
 	private int N_MIGRANTI = 1000;
@@ -25,7 +25,7 @@ public class Simulatore {
 	private int T = -1;
 	private Map<Country, Integer> stanziali;
 	
-	
+	// Metodo di inizializzazione
 	public void init(Country partenza, Graph<Country, DefaultEdge> grafo) {
 		this.partenza = partenza;
 		this.grafo = grafo;
